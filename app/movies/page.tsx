@@ -22,7 +22,7 @@ export default function Movies() {
   }
 
   useEffect(() => {
-    search("full movie 2026");
+    search("Telugu full movie 2026");
   }, []);
 
   return (
