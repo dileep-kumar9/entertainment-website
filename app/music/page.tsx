@@ -22,7 +22,7 @@ export default function Music() {
   }
 
   useEffect(() => {
-    search("top music hits 2026");
+    search("Telugu top music hits 2026");
   }, []);
 
   return (
