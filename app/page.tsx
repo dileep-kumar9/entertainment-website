@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SearchBar from "@/components/SearchBar";
 import VideoCard, { Video } from "@/components/VideoCard";
 import VideoPlayer from "@/components/VideoPlayer";
@@ -29,6 +29,10 @@ export default function Home() {
       setLoading(false);
     }
   }
+
+  useEffect(() => {
+    handleSearch("Telugu full movie 2026");
+  }, []);
 
   return (
     <div>
