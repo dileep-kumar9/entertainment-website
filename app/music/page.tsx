@@ -21,8 +21,17 @@ export default function Music() {
     }
   }
 
+  const defaultQueries = [
+    "Telugu top music hits 2026",
+    "Telugu new songs 2026",
+    "Tollywood melody songs",
+    "Telugu item songs",
+    "Telugu romantic love songs",
+  ];
+
   useEffect(() => {
-    search("Telugu top music 2026");
+    const pick = defaultQueries[Math.floor(Math.random() * defaultQueries.length)];
+    search(pick);
   }, []);
 
   return (
