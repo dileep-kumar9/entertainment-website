@@ -30,8 +30,17 @@ export default function Home() {
     }
   }
 
+  const defaultQueries = [
+    "Telugu full movie 2026",
+    "Tollywood new movie trailer",
+    "Telugu blockbuster action movie",
+    "Telugu movies 2026 full HD",
+    "Tollywood suspense thriller movie",
+  ];
+
   useEffect(() => {
-    handleSearch("Telugu full movie 2026");
+    const pick = defaultQueries[Math.floor(Math.random() * defaultQueries.length)];
+    handleSearch(pick);
   }, []);
 
   return (
