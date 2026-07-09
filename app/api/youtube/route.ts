@@ -1,5 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
 
+function decodeHtmlEntities(text: string): string {
+  return text
+    .replace(/&amp;/g, "&")
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&#(\d+);/g, (_, code) => String.fromCharCode(parseInt(code, 10)));
+}
+
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
   const q = searchParams.get("q") || "";
@@ -23,8 +33,8 @@ export async function GET(req: NextRequest) {
 
     const videos = (data.items || []).map((item: any) => ({
       id: item.id.videoId,
-      title: item.snippet.title,
-      channel: item.snippet.channelTitle,
+      title: decodeHtmlEntities(item.snippet.title),
+      channel: decodeHtmlEntities(item.snippet.channelTitle),
       thumbnail: item.snippet.thumbnails?.medium?.url,
     }));
 
