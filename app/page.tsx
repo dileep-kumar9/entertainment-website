@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import SearchBar from "@/components/SearchBar";
 import VideoCard, { Video } from "@/components/VideoCard";
 import VideoPlayer from "@/components/VideoPlayer";
+import Hero from "@/components/Hero";
 
 export default function Home() {
   const [videos, setVideos] = useState<Video[]>([]);
@@ -45,6 +46,8 @@ export default function Home() {
 
   return (
     <div>
+      {videos.length > 0 && <Hero video={videos[0]} onWatch={setPlaying} />}
+
       <h1 style={{ fontSize: 32, padding: "24px 24px 0" }}>Entertainment Hub</h1>
       <p style={{ padding: "4px 24px 0", color: "#999" }}>Search any movie, show, or music video on YouTube.</p>
 
